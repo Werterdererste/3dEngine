@@ -73,7 +73,13 @@ Vector2 extends Vector <Vector2>
 + length(): double // lenge eines Vectors
 + toString(): String
 
-Object3d
+interface Updateble
+--
+--
++ onUpdate(float deltaTime) //zum ausführn jedes tick. delatTime zur berechnung
+// +onStart()
+
+Object3d implements Updateble
 --
 - static count: int
 - name: String
@@ -108,7 +114,7 @@ Object3d
 + move(Vector3) // position add value
 + rotate(Vector3) // rotation add value
 + resize(Vector3) // scale add value 
-// abstract onUpdate()
++ onUpdate(float delaTime)
 // abstract onStart()
 + toString(): String
 + Static getCount(): int

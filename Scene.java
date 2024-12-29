@@ -45,6 +45,7 @@ public class Scene {
 		this.objects.addAll(objects);
 	}
 
+	// remove object by name
 	public void remove(String name) {
 		for (int i = 0; i < objects.size(); i++) {
 			if (objects.get(i).getName().equals(name)) {

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Object3d {
+public class Object3d implements Updateble {
 	//parameter
 	private static int count = 0;
 	
@@ -10,35 +10,38 @@ public class Object3d {
 	private Vector3 scale;
 	private boolean visible = true;
 
+	//punkte des objects
 	private List<Vector3> vertices = new ArrayList<>();
+	//flächen meist dreieckig bestehend aus vertices
+	//die liste besteht aus den index nummern der vertices
 	private List<int[]> polygons = new ArrayList<>();
 
 	// konstructor
 	public Object3d() {
-		this(Vector3.zero(), Vector3.zero(), Vector3.zero());
+		this(Vector3.zero(), Vector3.zero(), Vector3.one());
 	}
 
 	public Object3d(String name) {
-		this(name, Vector3.zero(), Vector3.zero(), Vector3.zero());
+		this(name, Vector3.zero(), Vector3.zero(), Vector3.one());
 	}
-	public Object3d(Vector3 p) {
-		this(p, Vector3.zero(), Vector3.zero());
-	}
-
-	public Object3d(String name, Vector3 p) {
-		this(name, p, Vector3.zero(), Vector3.zero());
+	public Object3d(Vector3 position) {
+		this(position, Vector3.zero(), Vector3.one());
 	}
 
-	public Object3d(Vector3 p, Vector3 r, Vector3 s) {
-		this("Obj-"+count, p, r, s);
+	public Object3d(String name, Vector3 positon) {
+		this(name, positon, Vector3.zero(), Vector3.one());
 	}
 
-	public Object3d(String name, Vector3 p, Vector3 r, Vector3 s) {
+	public Object3d(Vector3 position, Vector3 rotation, Vector3 scale) {
+		this("Obj-"+count, position, rotation, scale);
+	}
+
+	public Object3d(String name, Vector3 position, Vector3 rotation, Vector3 scale) {
 		count++;
 		this.name = name;
-		this.position = p;
-		this.rotation = r;
-		this.scale = s;
+		this.position = position;
+		this.rotation = rotation;
+		this.scale = scale;
 	}
 
 	// get set
@@ -122,6 +125,11 @@ public class Object3d {
 	// toString
 	public String toString() {
 		return "Object3d " + name + " is visible " + visible + "\nPosition: " + position + "\nRotation: " + rotation + "\nScale: "+ scale + "\n";
+	}
+
+	//aus Updateble wird jeden tick ausgeführt
+	//deltaTime für berechnungen
+	public void onUpdate(float deltaTime) {
 	}
 
 	public static void main(String[] args) {
