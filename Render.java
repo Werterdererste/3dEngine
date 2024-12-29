@@ -31,11 +31,11 @@ public class Render extends JPanel{
 			List<int[]> polygons = obj.getPolygons();
 	
 			for (int j = 0; j < polygons.size(); j++) {
-				int v0 = polygons.get(j)[0];
-				int v1 = polygons.get(j)[1];
-				int v2 = polygons.get(j)[2];
-				Vector3[] polygon = {vertices.get(v0), vertices.get(v1), vertices.get(v2)};
-			
+				Vector3[] polygon = new Vector3[polygons.get(j).length];
+				for (int p = 0; p < polygon.length; p++) {
+					int numPolygon = polygons.get(j)[p];
+					polygon[p] = vertices.get(numPolygon);
+				}	
 				paintPolygon(g2d, polygon);
 			}
 		}
