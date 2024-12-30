@@ -166,10 +166,16 @@ Render
 + paintPolygon(Graphics2d g2d, Vector3[] polygon
 + nextTick() //berechnet nächsten tick
 
-Main
+Cube extende Object3d
 --
+- static count: int
 --
-+ main
-+ createWindow()
-+ createObjects()
-
++ Cube() //name cubNum
++ Cube(name)
++ Cube(Vector3 position) 
++ Cube(name String, Vector3 position) 
++ Cube(Vector positon, Vector3 rotation, Vector3 scale) 
++ Cube(name String, Vector3 position, Vector3 rotation, Vector3 scale)
++ static getCount(): int
++ onUpdate(float deltaTime)
++ creatObject()

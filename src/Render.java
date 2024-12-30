@@ -40,6 +40,7 @@ public class Render extends JPanel{
 				for (int p = 0; p < polygon.length; p++) {
 					int numPolygon = polygons.get(j)[p];
 					polygon[p] = vertices.get(numPolygon);
+
 					// add obj positon
 					polygon[p].add(obj.getPosition());
 				}
