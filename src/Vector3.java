@@ -96,6 +96,17 @@ public class Vector3 extends Vector <Vector3> {
 		return new Vector3(v.getX() / a, v.getY() / a, v.getZ() / a); 
 	}
 
+	//komponentenweise *
+	public void scale(Vector3 v) {
+		this.x *=v.getX();
+		this.y *=v.getY();
+		this.z *=v.getZ();
+	}
+
+	public static Vector3 scale(Vector3 v, Vector3 w) {
+		return new Vector3(v.getX() * w.getX(), v.getY() * w.getY(), v.getZ() * w.getZ());
+	}
+
 	// default vectoren
 	public static Vector3 zero() {
 		return new Vector3(0, 0, 0);
@@ -125,6 +136,11 @@ public class Vector3 extends Vector <Vector3> {
 		System.out.println(v);	
 		System.out.println(Vector3.subtract(new Vector3(3, 1, 7), new Vector3(8, 1, 3)));
 
+		System.out.println();
+		Vector3 s = new Vector3(1, 2, 1);
+		s.scale(new Vector3(1, 2, 3));
+		System.out.println(s);
+		
 	}
 
 }

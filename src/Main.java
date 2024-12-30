@@ -1,12 +1,14 @@
 import java.awt.*;
 import javax.swing.*;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
 
 	public static void main(String[] args) {
 	
-		Cube cube = new Cube();
+		Cube cube = new Cube(new Vector3(0,0,0), Vector3.one(), new Vector3(1,1,1));
+		System.out.println(cube);
 		Camera c = new Camera();
 
 		Scene scene = new Scene(c);
@@ -22,6 +24,14 @@ public class Main {
 
 		jframe.setVisible(true);
 
+		while (true) {
+			try {
+			TimeUnit.SECONDS.sleep(2);
+			r.nextTick();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
 	}
 
 }

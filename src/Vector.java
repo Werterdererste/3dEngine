@@ -14,6 +14,9 @@ public abstract class Vector <V extends Vector> {
 	public abstract void multiplie(double a);
 	public abstract void divide(double a);
 
+	//komponentenweise mulipliekation
+	public abstract void scale(V v);
+
 	public abstract double length();
 
 	public abstract String toString();

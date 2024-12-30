@@ -45,11 +45,11 @@ public class Camera implements Updateble {
 		//TODO: überarbeiten
 		Vector2 vx = new Vector2(6,0);
 		Vector2 vy = new Vector2(0,5);
-		Vector2 vz = new Vector2(-3,-7);
+		Vector2 vz = new Vector2(-2,-4);
 
-		vx.multiplie(v.getX()*30);
-		vy.multiplie(v.getY()*30);
-		vz.multiplie(v.getZ()*30);
+		vx.multiplie(v.getX()*10);
+		vy.multiplie(v.getY()*10);
+		vz.multiplie(v.getZ()*10);
 
 		Vector2 out = new Vector2();
 		out.add(vx);

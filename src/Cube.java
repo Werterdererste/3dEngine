@@ -38,14 +38,14 @@ public class Cube extends Object3d {
 
 	public void creatObject() {
 
+		super.addVertex(new Vector3(-1 , -1, -1));
+		super.addVertex(new Vector3(-1, 1, -1));
+		super.addVertex(new Vector3(1,1,-1));
+		super.addVertex(new Vector3(1,-1,-1));
+		super.addVertex(new Vector3(-1,-1,1));
+		super.addVertex(new Vector3(-1,1,1));
 		super.addVertex(new Vector3(1,1,1));
-		super.addVertex(new Vector3(1,2,1));
-		super.addVertex(new Vector3(2,2,1));
-		super.addVertex(new Vector3(2,1,1));
-		super.addVertex(new Vector3(1,1,2));
-		super.addVertex(new Vector3(1,2,2));
-		super.addVertex(new Vector3(2,2,2));
-		super.addVertex(new Vector3(2,1,2));
+		super.addVertex(new Vector3(1,-1,1));
 
 
 		// 4v polygon

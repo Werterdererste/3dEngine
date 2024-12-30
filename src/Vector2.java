@@ -84,6 +84,16 @@ public class Vector2 extends Vector <Vector2> {
 		return new Vector2(v.getX() / a, v.getY() / a); 
 	}
 
+	// komponentenweise *
+	public void scale(Vector2 v) {
+		this.x *= v.getX();
+		this.y *= v.getY();
+	}
+
+	public static Vector2 scale(Vector2 v, Vector2 w) {
+		return new Vector2(v.getX() * w.getX(), v.getY() * w.getY());
+	}
+
 	// default vectoren
 	public static Vector2 zero() {
 		return new Vector2(0, 0);

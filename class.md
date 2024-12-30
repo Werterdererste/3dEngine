@@ -16,6 +16,7 @@ abstract Vector <V extends Vector>
 + abstract subtract(V)
 + abstract multiplie(double)
 + abstract divide(double)
++ abstract scale(V) // komponentenweise multiplikation
 + abstract length(): double // lenge eines Vectors
 + abstract toString(): String
 
@@ -42,6 +43,8 @@ Vector3 extends Vector <Vector3>
 + Static multiplie(Vector3, double): Vector3
 + divide(double)
 + Static divide(Vector3, double): Vector3
++ scale(Vector3 v)
++ Static scale(Vector3 v, Vector3 w): Vector 3
 + Static zero(): Vector // (0 0 0)
 + Static one(): Vector3 // (1 1 1)
 + length(): double // length eines Vectors
@@ -68,6 +71,8 @@ Vector2 extends Vector <Vector2>
 + Static multiplie(Vector2, double): Vector2
 + divide(double)
 + Static divide(Vector2, double): Vector2 
++ scale(Vector2 v)
++ staic scale (Vector2 v, Vector2 w): Vector2
 + Static zero(): Vector2 // (0 0)
 + Static one(): Vector2 // (1 1)
 + length(): double // lenge eines Vectors

@@ -30,6 +30,16 @@ public class Render extends JPanel{
 			Object3d obj = scene.getObject(i);
 			
 			List<Vector3> vertices = obj.getVertices();
+	
+			for (int v = 0; v < vertices.size(); v++) {
+				
+				// skalierung
+				vertices.get(v).scale(obj.getScale());
+				// rotation
+				// position
+				vertices.get(v).add(obj.getPosition());
+			}
+
 			List<int[]> polygons = obj.getPolygons();
 
 			// geht polygons des objects durch
@@ -40,9 +50,7 @@ public class Render extends JPanel{
 				for (int p = 0; p < polygon.length; p++) {
 					int numPolygon = polygons.get(j)[p];
 					polygon[p] = vertices.get(numPolygon);
-
-					// add obj positon
-					polygon[p].add(obj.getPosition());
+					
 				}
 				// zeichnet polygon
 				paintPolygon(g2d, polygon);
@@ -56,7 +64,6 @@ public class Render extends JPanel{
 		int centerX = getWidth() / 2;
         	int centerY = getHeight() / 2;
 
-		System.out.println(polygon3d);
 		//wandelt 3d zu 3d um
 		Vector2[] polygon2d = scene.getCamera().project(polygon3d);	
 
@@ -68,8 +75,8 @@ public class Render extends JPanel{
 		//x punkte 
 		for (int i = 0; i < length; i++) {
 			xPoints[i] = centerX + (int) polygon2d[i].getX();
-			yPoints[i] = centerY + (int) polygon2d[i].getY();
-			System.out.println("x "+xPoints[i]+ " y "+ yPoints[i]);
+			yPoints[i] = centerY - (int) polygon2d[i].getY();
+			//System.out.println("x "+xPoints[i]+ " y "+ yPoints[i]);
 		}
 
 		g2d.drawPolygon(xPoints, yPoints, length);
