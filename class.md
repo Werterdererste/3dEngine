@@ -184,3 +184,23 @@ Cube extende Object3d
 + static getCount(): int
 + onUpdate(float deltaTime)
 + creatObject()
+
+ObjectOBJ extende Object3d
+--
+- static count: int
+- string: fileName
+--
++ ObjectOBJ(String: fileName) //name cubNum
++ ObjectOBJ(String: fileName, name)
++ ObjectOBJ(String: fileName, Vector3 position) 
++ ObjectOBJ(String: fileName, name String, Vector3 position) 
++ ObjectOBJ(String: fileName, Vector positon, Vector3 rotation, Vector3 scale) 
++ ObjectOBJ(String: fileName, name String, Vector3 position, Vector3 rotation, Vector3 scale)
++ static getCount(): int
++ onUpdate(float deltaTime)
++ parseOBJfile(String filePath)
++ parseVertex(String line)
++ parsePolygon(String line)
+
+
+

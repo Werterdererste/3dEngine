@@ -8,11 +8,13 @@ public class Main {
 	public static void main(String[] args) {
 	
 		Cube cube = new Cube(new Vector3(0,0,0), Vector3.one(), new Vector3(1,1,1));
+		ObjectOBJ obj = new ObjectOBJ("obj/car.obj", new Vector3(0,0,0), Vector3.one(), new Vector3(2,2,2));
 		System.out.println(cube);
+
 		Camera c = new Camera();
 
 		Scene scene = new Scene(c);
-		scene.add(cube);
+		scene.add(obj);
 		
 		//create window
 		JFrame jframe = new JFrame("3D engin");
