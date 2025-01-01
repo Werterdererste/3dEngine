@@ -33,7 +33,7 @@ public class Cube extends Object3d {
 
 	}
 
-	public void onUpdate() {
+	public void onUpdate(float timeDelta) {
 	}
 
 	public void creatObject() {

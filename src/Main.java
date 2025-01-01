@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-import java.util.concurrent.TimeUnit;
+import java.lang.Thread;
 
 public class Main {
 
@@ -8,8 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 	
 		Cube cube = new Cube(new Vector3(0,0,0), Vector3.one(), new Vector3(1,1,1));
-		ObjectOBJ obj = new ObjectOBJ("obj/car.obj", new Vector3(0,0,0), Vector3.one(), new Vector3(2,2,2));
-		System.out.println(cube);
+		ObjectOBJ obj = new ObjectOBJ("obj/car.obj", new Vector3(0,0,0), Vector3.one(), new Vector3(3,3,3));
 
 		Camera c = new Camera();
 
@@ -26,10 +25,24 @@ public class Main {
 
 		jframe.setVisible(true);
 
+		long lastTime = System.nanoTime();
+		float deltaTime = 0;
+
 		while (true) {
+
 			try {
-			TimeUnit.SECONDS.sleep(2);
-			r.nextTick();
+				//berrechnung deltaTime
+				long currentTime = System.nanoTime();
+				deltaTime = (currentTime - lastTime) / 1_000_000_000.0f;
+				lastTime = currentTime;
+				System.out.println("FPS: "+ 1/deltaTime);
+				r.nextTick(deltaTime);
+
+				//pause für 30 fps 
+				Thread.sleep(30);
+
+				//langsammer zum testen 1 fps
+				//Thread.sleep(1000);
 			} catch (Exception e) {
 				System.out.println(e);
 			}

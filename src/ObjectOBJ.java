@@ -34,7 +34,11 @@ public class ObjectOBJ extends Object3d {
 		parseOBJfile(filePath);
 	}
 
-	public void onUpdate() {
+	public void onUpdate(float timeDelta) {
+		//TODO: just a test
+		System.out.println("move");
+		super.move(Vector3.multiplie(new Vector3(1,0,0), 1*timeDelta));
+		super.resize(Vector3.multiplie(new Vector3(1,1,1), 1*timeDelta));
 	}
 
 	// read obj file and parse
@@ -70,7 +74,6 @@ public class ObjectOBJ extends Object3d {
 		double y = Double.parseDouble(parts[1]);
 		double z = Double.parseDouble(parts[2]);
 		Vector3 v = new Vector3(x,y,z);
-		System.out.println(v);
 		super.addVertex(v);
 	}
 	
