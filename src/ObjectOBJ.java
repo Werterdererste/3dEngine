@@ -37,8 +37,10 @@ public class ObjectOBJ extends Object3d {
 	public void onUpdate(float timeDelta) {
 		//TODO: just a test
 		System.out.println("move");
-		super.move(Vector3.multiplie(new Vector3(1,0,0), 1*timeDelta));
-		super.resize(Vector3.multiplie(new Vector3(1,1,1), 1*timeDelta));
+
+		//super.move(Vector3.multiplie(new Vector3(1,0,0), 1*timeDelta));
+		super.rotate(Vector3.multiplie(new Vector3(1,1,1), 1*timeDelta));
+		//super.resize(Vector3.multiplie(new Vector3(1,1,1), 1*timeDelta));
 	}
 
 	// read obj file and parse

@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 	
 		Cube cube = new Cube(new Vector3(0,0,0), Vector3.one(), new Vector3(1,1,1));
-		ObjectOBJ obj = new ObjectOBJ("obj/car.obj", new Vector3(0,0,0), Vector3.one(), new Vector3(3,3,3));
+		ObjectOBJ obj = new ObjectOBJ("obj/car.obj", new Vector3(0,0,0), Vector3.zero(), new Vector3(3,3,3));
 
 		Camera c = new Camera();
 

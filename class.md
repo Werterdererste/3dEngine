@@ -167,7 +167,8 @@ Render
 + Render(Scene scene)
 + setScene(Scene scene)
 + getScene(): Scene
-* paintComponent(Graphics g) //paint vectors
++ paintComponent(Graphics g) //paint vectors
++ rotate(Vector3 v, Vector3 rotate): Vector3
 + paintPolygon(Graphics2d g2d, Vector3[] polygon
 + nextTick() //berechnet nächsten tick
 

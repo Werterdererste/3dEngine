@@ -39,6 +39,9 @@ public class Render extends JPanel{
 				// skalierung
 				vertices.set(v, Vector3.scale(vertices.get(v), obj.getScale()));
 				// rotation 
+
+				vertices.set(v, rotate(vertices.get(v), obj.getRotation()));
+
 				// position
 				vertices.get(v).add(obj.getPosition());
 			}
@@ -53,13 +56,55 @@ public class Render extends JPanel{
 				for (int p = 0; p < polygon.length; p++) {
 					int numPolygon = polygons.get(j)[p];
 					polygon[p] = vertices.get(numPolygon);
-					
+
 				}
 				// zeichnet polygon
 				paintPolygon(g2d, polygon);
 			}
 		}
 	}
+
+	//rotation
+	public Vector3 rotate(Vector3 v, Vector3 rotate) {
+
+		double x = rotate.getX();
+		double y = rotate.getY();
+		double z = rotate.getZ();
+
+		double sinX = Math.sin(x);
+		double cosX = Math.cos(x);
+		double sinY = Math.sin(y);
+		double cosY = Math.cos(y);
+		double sinZ = Math.sin(z);
+		double cosZ = Math.cos(z);
+
+		//X
+		// 1 0 0
+		// 0 cos -sin
+		// 0 sin cos
+		double x1 = v.getX();
+		double y1 = v.getY()*cosX - v.getZ()*sinX;
+		double z1 = v.getY()*sinX + v.getZ()*cosX;
+
+		//Y
+		// cos 0 sin
+		// 0 1 0
+		// -sin 0 cos
+		double x2 = x1*cosY + z1*sinY;
+		double y2 = y1;
+		double z2 = -x1*sinY + z1*cosY;
+
+		//Z
+		// cos -sin 0
+		// sin cos 0
+		// 0 0 1
+		double x3 = x2*cosZ - y2*sinZ;
+		double y3 = x2*sinZ + y2*cosZ;
+		double z3 = z2;
+
+		return new Vector3(x3, y3, z3);
+	}
+
 
 	// zeichnet polygon
 	public void paintPolygon(Graphics2D g2d, Vector3[] polygon3d) {
