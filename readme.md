@@ -2,13 +2,18 @@
 
 Eine einfache kleine 3D Engine.
 
-Zile des Projektes ist es eine 3D Engine in Java zu schreiben. Mit dem ziel sowol Mathe als auch java kenntnisse anzuwenden, zu erweitern und Anzuwenden.
+Ziel des Projektes war es eine 3D Engine in Java zu schreiben. Um meine im ersten Semmester erworbenden Mathe und java kenntnisse anzuwenden, zu erweitern.
 
-Die 3D Engine soll am ende folgendes können (Ziele können sich im verlauf Endern).
-- 3d Vektoren in 2D umrechnen und zeichnen in einem Fenster.
-- Einen Würfel zeichnen.
-- Andere Figuren.
-- Figuren können gedreht werden.
-- Flächen können eingefärbt werden.
+Die 3D Engin kann:
+- 3D Vektoren mittels einer Linearen Abbildung in 2D umwandeln
+- Unterstützt Transformationen:
+    - Skalirung
+    - Positionierung
+    - Rotation
+- Unterstützung für OBJ files zum laden von 3d Objekten
+- Updates in jedem Frame. Die Transformationseigenschafften können geändert werden.
 
-
+Noch nicht Umgesetzt:
+- Umstellen von Lineare Abbildungs auf Fokus Projektion.
+- Kamera Position einberechnen.
+- Farben flächen etc ( zu aufwendig )
